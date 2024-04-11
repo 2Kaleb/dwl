@@ -32,12 +32,12 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "wbg","/home/kdebre/dwm/wallpaper/arch.png", NULL,
-	"/home/kdebre/PowerFolder/PowerFolder-Client",NULL, 
-	"/home/kdebre/vesktop/vesktop",NULL, 
+	"marktext","/home/kdebre/PowerFolders/MobileUploads/2Kaleb/Personal/*To-Do.md",NULL,
+        "wbg","/home/kdebre/dwl/arch.png", NULL,
+	"bash","/home/kdebre/PowerFolder/PowerFolder-Client",NULL, 
+	"vesktop",NULL,"thorium-browser",NULL,"firefox",NULL,"obsidian",NULL,
 	 "/home/kdebre/Downloads/whatsapp.AppImage", NULL,
-	 "firefox",NULL,
-	 "obsidian",NULL,
+	 "/home/kdebre/urserver-3.13.0.2505/urserver",NULL,
 	 /*"thunderbird;texstudio;zoom;zotero;thorium-browser;NULL,*/
 	/* 
   26   │     "tcsh","-c","conda run spyder &",NULL,
@@ -84,6 +84,8 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
+/*	{ "DP-3",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	{ "HDMI-A-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },*/
 	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
@@ -163,6 +165,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
 	{ MODKEY,		     XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
+	{MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_R,          spawn,            SHCMD("systemctl reboot") },
+	{MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,            SHCMD("systemctl shutdown") },
 	{ MODKEY,		     XKB_KEY_o,     	 spawn,          SHCMD("slurp | grim -g - - | wl-copy") },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
